@@ -35,7 +35,7 @@ export const About = () => {
                             <h2>
                                 Sobre Mí
                             </h2>
-                            <p>Desarrollador Backend y Frontend. En conocimientos de lenguaje de programación PHP, Javascript. Framework Laravel, React js, Graphql, diseño de Base de Datos relacionales (SQL, MySql) para el desarrollo de Aplicaciones y Páginas web.
+                            <p className="parrafo">Desarrollador Backend y Frontend. En conocimientos de lenguaje de programación PHP, Javascript. Framework Laravel, React js, Graphql, diseño de Base de Datos relacionales (SQL, MySql) para el desarrollo de Aplicaciones y Páginas web.
                                 <br/>
                                 Soy una persona siempre dispuesta aprender nuevas cosas, me gustan los retos. La empatia y perserverancia son unas de mis cualidades mas resaltante, siempre me pongo en el lugar de las personas y trato de entender el por qué de las cosas, comprender situaciones de la vida o decisiones sin juzgar a nadie.<br/> Perserverante por que soy un hombre lleno de metas a corto y largo plazo trabajo en pro hasta terminar de logralas.
                                 <br/>

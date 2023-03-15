@@ -33,7 +33,7 @@ export const Skill = () => {
                     <Col>
                         <div className="skill-bx">
                             <h2>
-                                Skills
+                                Habilidades
                             </h2>
                             <p>En este espacio, te mostraré algunas de mis habilidades y competencias para que puedas conocer un poco más sobre mí y mi experiencia. Soy consciente de la importancia de las habilidades en el mercado laboral actual y por eso quiero destacar algunas de las mías. A lo largo de mi carrera, he desarrollado diversas habilidades que me han permitido enfrentar diferentes desafíos y superar obstáculos.</p>
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">

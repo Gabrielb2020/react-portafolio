@@ -47,6 +47,10 @@ p, a, li, button, ul {
   padding: 0;
   line-height: normal;
   text-decoration: none;
+  /*text-align: justify;*/
+}
+
+.parrafo {
   text-align: justify;
 }
 
