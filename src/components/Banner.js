@@ -1,68 +1,65 @@
-import React  from 'react';
-import { useState, useEffect} from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { ArrowRightCircle, Github, Linkedin } from 'react-bootstrap-icons';
 import headerImg from '../assets/img/header-img.svg';
-import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
+const ROLES = ['Full Stack Software Developer', 'Especialista en Ruby on Rails'];
+
 export const Banner = () => {
-    const [loopNum, setLoopNum] = useState(0);
-    const [isDeleting, setIsDeleting] = useState(false);
-    const toRotate = ["Software Developer"];
-    const [text,setText] = useState('');
-    const [delta, setDelta] = useState(300 - Math.random() * 100);
-    const period = 2000;
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState('');
 
-    useEffect(() => {
-        let ticker = setInterval(() => {
-            tick();
-        },delta)
+  useEffect(() => {
+    const currentRole = ROLES[roleIndex];
+    const typingSpeed = isDeleting ? 45 : 95;
+    const pause = !isDeleting && text === currentRole ? 1800 : typingSpeed;
+    const timer = setTimeout(() => {
+      if (!isDeleting && text === currentRole) {
+        setIsDeleting(true);
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setRoleIndex((index) => (index + 1) % ROLES.length);
+      } else {
+        setText(currentRole.substring(0, text.length + (isDeleting ? -1 : 1)));
+      }
+    }, pause);
 
-        return () => {clearInterval(ticker)};
-    }, [text])
-
-    const tick = () => {
-        let i = loopNum % toRotate.length;
-        let fullText = toRotate[i];
-        let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1)
-
-        setText(updatedText);
-
-        if (isDeleting){
-            setDelta(prevDelta => prevDelta /2)
-        }
-
-        if (!isDeleting && updatedText === fullText) {
-            setIsDeleting(true);
-            setDelta(period);
-        }else if (isDeleting && updatedText === ''){
-            setIsDeleting(false);
-            setLoopNum(loopNum +1);
-            setDelta(500);
-        }
-    }
+    return () => clearTimeout(timer);
+  }, [isDeleting, roleIndex, text]);
 
   return (
-      <section className="banner" id="home">
-          <Container>
-              <Row>
-                  <Col xs={12} md={6} xl={7}>
-                      <TrackVisibility>
-                          {({ isVisible }) =>
-                              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                                  <span className="tagline">Bienvenido a mi portafolio</span>
-                                  <h1>{`Hi I'am Gabriel `}<span>{text}</span></h1>
-                                  <p>Desarrollador Backend. En conocimientos de lenguaje de programación PHP, Javascript. Framework Laravel, Graphql, diseño de Base de Datos relacionales (SQL, MySql) para el desarrollo de Aplicaciones y Páginas web.</p>
-                                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
-                              </div>}
-                      </TrackVisibility>
-                  </Col>
-                  <Col>
-                      <img src={headerImg} alt="Header Img" />
-                  </Col>
-              </Row>
-          </Container>
-      </section>
-  )
-}
+    <section className="banner" id="home">
+      <Container>
+        <Row className="align-items-center">
+          <Col xs={12} md={7} xl={7}>
+            <TrackVisibility>
+              {({ isVisible }) => (
+                <div className={isVisible ? 'animate__animated animate__fadeIn' : ''}>
+                  <span className="tagline">Disponible para nuevos retos</span>
+                  <h1>Hola, soy Gabriel.<br /><span>{text}</span></h1>
+                  <p>Desarrollador Full Stack con 5 años de experiencia construyendo productos web en producción. Me especializo en Ruby on Rails, SaaS multitenant, APIs, PostgreSQL e integraciones con servicios externos.</p>
+                  <div className="banner-actions">
+                    <a className="primary-button" href="#project">Ver proyectos <ArrowRightCircle size={22} /></a>
+                    <a className="secondary-button" href="mailto:gabgamardo25@gmail.com">Hablemos</a>
+                  </div>
+                  <div className="hero-links" aria-label="Enlaces profesionales">
+                    <a href="https://www.linkedin.com/in/gabriel-anibal-bustamante-gamardo-8206461b5/" target="_blank" rel="noreferrer"><Linkedin size={18} /> LinkedIn</a>
+                    <a href="https://github.com/Gabrielb2020" target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
+                  </div>
+                </div>
+              )}
+            </TrackVisibility>
+          </Col>
+          <Col xs={12} md={5} xl={5}>
+            <div className="hero-illustration">
+              <img src={headerImg} alt="Ilustración de desarrollo de software" />
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+};
