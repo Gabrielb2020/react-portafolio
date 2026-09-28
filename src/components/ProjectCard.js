@@ -1,10 +1,9 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 
-export const ProjectCard = ({ title, description, imgUrl, link }) => {
+export const ProjectCard = ({ title, description, link }) => {
   const content = (
     <>
-      <img src={imgUrl} alt={link ? 'Vista previa de ' + title : ''} aria-hidden={!link} />
       <div className="proj-txtx">
         <h4>{title}</h4>
         <span>{description}</span>

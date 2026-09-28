@@ -2,9 +2,6 @@ import React from 'react';
 import { Col, Container, Nav, Row, Tab } from 'react-bootstrap';
 import { ProjectCard } from './ProjectCard';
 import colorSharp2 from '../assets/img/color-sharp2.png';
-import projImg1 from '../assets/img/project-img1.png';
-import projImg2 from '../assets/img/project-img2.png';
-import projImg3 from '../assets/img/project-img3.png';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
@@ -14,42 +11,36 @@ export const Project = () => {
       category: 'experiencia',
       title: 'Plataforma SaaS multitenant',
       description: 'Evolución de una plataforma para múltiples empresas con Ruby on Rails, PostgreSQL, autenticación, autorización, APIs e integraciones.',
-      imgUrl: projImg1,
       link: null
     },
     {
       category: 'experiencia',
       title: 'Sistema de compras y aprobaciones',
       description: 'API en Rails y frontend en Next.js para crear órdenes, gestionar aprobaciones y hacer seguimiento del proceso.',
-      imgUrl: projImg2,
       link: null
     },
     {
       category: 'publicos',
       title: 'SigeTurbo',
       description: 'Aplicación web académica para apoyar la gestión de procesos escolares.',
-      imgUrl: projImg3,
       link: 'https://sigeturbo.thenewschool.edu.co/'
     },
     {
       category: 'publicos',
       title: 'MercaApp',
       description: 'Aplicación de ventas de productos con catálogo y flujo de pago.',
-      imgUrl: projImg1,
       link: 'https://github.com/Gabrielb2020/MercaApp'
     },
     {
       category: 'publicos',
       title: 'InstaPhoto',
       description: 'Proyecto de práctica inspirado en una red social, construido con PHP y Laravel.',
-      imgUrl: projImg2,
       link: 'https://github.com/Gabrielb2020/InstaPhoto'
     },
     {
       category: 'aprendizaje',
       title: 'Algoritmos y lógica',
       description: 'Ejercicios de lógica y resolución de problemas con JavaScript.',
-      imgUrl: projImg3,
       link: 'https://github.com/Gabrielb2020'
     }
   ];
